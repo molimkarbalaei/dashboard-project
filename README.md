@@ -14,25 +14,44 @@ I clone Instagram by seeing code commerence's videos [Tutorial](https://www.yout
 
 ### Architecture:
 
-<!-- in src:
+in src:
 
-**components:**
+<!-- **components:** -->
+
+- Components
 
 - pages
 
-  1. count page
-  1. coin page
-     - coin description
-  1. home page
-     - trending coins
-  1. sign in page (login page)
-  1. sign up page (register page)
+1. Dashboard:
 
-- contex we have root.
+   - ECommerce
 
-- mobile menu + navbar + sign in + sign up
+1. Different pages:
 
-- our database is on firebase -->
+   - Orders
+   - Employees
+   - Customers
+
+1. App
+
+   - Calender
+   - Kanban
+   - Editor
+   - Color-picker
+
+1. Charts
+   - Line
+   - Area
+   - Bar
+   - Pie
+   - Financial
+   - Color-mapping
+   - Pyramid
+   - Stacked
+
+- context we have root.
+
+- Data
 
 ### **Styling:**
 
