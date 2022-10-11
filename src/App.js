@@ -50,11 +50,20 @@ const App = () => {
               Navbar
             </div>
           </div>
-          {/* main div for routing: different types: */}
+          {/* main div for routing menu: */}
           <div>
             <Routes>
+              {/* DASHBOARD: */}
               <Route path="/" element="ECommerce" />
               <Route path="/ecommerce" element="ECommerce" />
+
+              {/* PAGES: */}
+              <Route path="/orders" element="Orders" />
+              <Route path="/employees" element="Employees" />
+              <Route path="/customers" element="Customers" />
+
+              {/* Apps: */}
+              <Route path="/orders" element="Orders" />
             </Routes>
           </div>
         </div>
