@@ -10,7 +10,7 @@ I used Tailwind CSS for this project and I really enjoyed using it. I used style
 
 ## Source
 
-I clone Instagram by seeing code commerence's videos [Tutorial](https://www.youtube.com/watch?v=jx5hdo50a2M&list=PL6QREj8te1P6wX9m5KnicnDVEucbOPsqR&index=11)
+I clone Instagram by seeing JavaScript Mastery's videos [Tutorial](https://www.youtube.com/watch?v=jx5hdo50a2M&list=PL6QREj8te1P6wX9m5KnicnDVEucbOPsqR&index=11)
 
 ### Architecture:
 
