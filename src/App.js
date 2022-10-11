@@ -63,7 +63,7 @@ const App = () => {
               <Route path="/customers" element="Customers" />
 
               {/* Apps: */}
-              <Route path="/calender" element="Calender" />
+              <Route path="/calendarr" element="Calendar" />
               <Route path="/kanban" element="Kanban" />
               <Route path="/editor" element="Editor" />
               <Route path="/color-picker" element="ColorPicker" />
