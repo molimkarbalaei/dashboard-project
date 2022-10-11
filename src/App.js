@@ -33,6 +33,30 @@ const App = () => {
           ) : (
             <div className="w-0 dark:bg-secondary-dark-bg">sidebar w-0</div>
           )}
+          {/* navigation bar: based on if the menu is active or not*/}
+          <div
+            className={
+              //cause we have similar ones:
+              `dark:bg-main-bg bg-main-bg min-h-screen w-full ${
+                activeMenu ? "md : ml - 12" : "flex-2"
+              }`
+              //   activeMenu
+              //     ? "dark:bg-main-bg bg-main-bg min-h-screen md:ml-12 w-full"
+              //     : "dark:bg-main-bg bg-main-bg min-h-screen w-full flex-2"
+            }
+          >
+            {/* for navbar */}
+            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+              Navbar
+            </div>
+          </div>
+          {/* main div for routing: different types: */}
+          <div>
+            <Routes>
+              <Route path="/" element="ECommerce" />
+              <Route path="/ecommerce" element="ECommerce" />
+            </Routes>
+          </div>
         </div>
       </BrowserRouter>
     </div>
