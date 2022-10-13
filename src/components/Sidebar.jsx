@@ -10,14 +10,15 @@ import { links } from "../data/dummy";
 
 const Sidebar = () => {
   // step by step:
-  // 1. we have to create a function to close the sidebar
-  // 2. we have to create a function to open the sidebar
-  // 3. we have to create a function to show the sidebar
-  // 4. we have to create a function to hide the sidebar
-  // 5. we have to create a function to show the tooltip
-  // 6. we have to create a function to hide the tooltip
 
   const activeMenu = true;
+
+  // set 2 types of classes: active and inactive links:
+  const activeLink =
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2";
+
+  const normalLink =
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
 
   return (
     //md: medium device the overflow is hidden:
@@ -29,10 +30,42 @@ const Sidebar = () => {
             <Link
               to="/"
               onClick={() => {}}
-              className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold"
+              className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900 "
             >
               <SiShopware /> <span>Shoppy</span>
             </Link>
+            <TooltipComponent content="Menu" position="BottomCenter">
+              <button
+                type="button"
+                onClick={() => {}}
+                className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
+              >
+                <MdOutlineCancel />
+              </button>
+            </TooltipComponent>
+          </div>
+          {/* for our actual items: tuye sidebar. */}
+          <div className="mt-10">
+            {links.map((item) => (
+              <div key={item.title}>
+                <p className="text-gray-400 m-3 mt-4 uppercase">{item.title}</p>
+                {/* we loop over the link: */}
+                {item.links.map((link) => (
+                  <NavLink
+                    to={`/${link.name}`}
+                    key={link.name}
+                    onClick={() => {}}
+                    // we call a fun in out classname:
+                    className={({ isActive }) =>
+                      isActive ? activeLink : normalLink
+                    }
+                  >
+                    {link.icon}
+                    <span className="capitalize">{link.name} </span>
+                  </NavLink>
+                ))}
+              </div>
+            ))}
           </div>
         </>
       )}
@@ -41,3 +74,9 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+//What is the difference between NavLink and Link ?
+// the Link component is used to navigate the different routes on the site.
+// But NavLink is used to add the style attributes to the active routes.
+
+/// react context api  ===> next step
