@@ -15,7 +15,7 @@ const initialState = {
 };
 
 // now we will create a provider for our context ==>
-export const contextProvider = ({ children }) => {
+export const ContextProvider = ({ children }) => {
   // lets add all states and logics we have: in our context:
   // 1- the state:
   const [activeMenu, setActiveMenu] = useState(true);
