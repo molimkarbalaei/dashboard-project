@@ -24,8 +24,13 @@ import {
 
 import "./App.css";
 
+// now we impoert the context:
+import { useStateContext } from "./context/ContextProvider";
+
 const App = () => {
-  const activeMenu = true;
+  // now we bring the context here:
+  const { activeMenu } = useStateContext();
+
   return (
     <div>
       <BrowserRouter>

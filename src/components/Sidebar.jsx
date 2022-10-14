@@ -8,10 +8,14 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import { links } from "../data/dummy";
 
+//****(1) */ for working the sidebar -->
+import { useStateContext } from "../context/ContextProvider";
+
 const Sidebar = () => {
   // step by step:
 
-  const activeMenu = true;
+  //****(2) from the context we have to get the state:
+  const { activeMenu, setActiveMenu } = useStateContext();
 
   // set 2 types of classes: active and inactive links:
   const activeLink =
@@ -29,7 +33,9 @@ const Sidebar = () => {
           <div className="flex justify-between items-center">
             <Link
               to="/"
-              onClick={() => {}}
+              onClick={() => {
+                setActiveMenu(false);
+              }}
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900 "
             >
               <SiShopware /> <span>Shoppy</span>
@@ -37,7 +43,12 @@ const Sidebar = () => {
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
                 type="button"
-                onClick={() => {}}
+                // we want to change the menu by previous value of that menu:
+                // using call back funtion:
+                // prevActiveMenu is the previous value of the activeMenu= prev state
+                onClick={() => {
+                  setActiveMenu((prevActiveMenu) => !prevActiveMenu);
+                }}
                 className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
               >
                 <MdOutlineCancel />

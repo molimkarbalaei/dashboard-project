@@ -24,10 +24,12 @@ export const ContextProvider = ({ children }) => {
   return (
     // the value is an obj:
     // 1-1: we can pass that state over the value:
+    // 1-2: open and close the menu: setActiveMenu
 
     <StateContext.Provider
       value={{
         activeMenu,
+        setActiveMenu,
       }}
     >
       {/* we always return children: */}
