@@ -45,6 +45,8 @@ const Navbar = () => {
       {/* we can pass some props: */}
       {/* if the menu is open so close it or viseversa */}
       {/*  color is sink the themecolor */}
+
+      {/* 1- create a Navbutton. */}
       <NavButton
         // this is that button of menu icon:
         title="Menu"
@@ -53,8 +55,37 @@ const Navbar = () => {
         icon={<AiOutlineMenu />}
         // so now we have every thing to create the navbutton.
       />
+
+      {/* 2- create a search bar: */}
+      <div className="flex ">
+        <NavButton
+          title="Cart"
+          customFunc={() => handleClick("cart")}
+          color="blue"
+          icon={<FiShoppingCart />}
+        />
+      </div>
+
+      {/* 3- create a chat icon: */}
+      <NavButton
+        title="Chat"
+        dotcolor="#03C9D7"
+        customFunc={() => handleClick("chat")}
+        color="blue"
+        icon={<BsChatLeft />}
+      />
+
+      {/* 4- create a notification icon: */}
+      <NavButton
+        title="Notification"
+        dotcolor="#03C9D7"
+        customFunc={() => handleClick("notification")}
+        color="blue"
+        icon={<RiNotification3Line />}
+      />
+
+      {/* 5- create a user profile icon: */}
     </div>
   );
 };
-
 export default Navbar;
