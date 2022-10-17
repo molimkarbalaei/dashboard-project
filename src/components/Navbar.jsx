@@ -19,7 +19,19 @@ import { useStateContext } from "../context/ContextProvider";
 // همون ردیف بالایی که با تول تیپ کامپوننت رپ شده.
 const NavButton = ({ title, customFunc, icon, color, dotcolor }) => (
   <TooltipComponent content={title} position="BottomCenter">
-    <button></button>
+    <button
+      type="button"
+      onClick={customFunc}
+      style={{ color }}
+      className="relative text-xl rounded-full p-3 hover:bg-light-gray"
+    >
+      <span
+        style={{ background: dotcolor }}
+        className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
+      >
+        {icon}
+      </span>
+    </button>
   </TooltipComponent>
 );
 
@@ -30,7 +42,17 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
-      <NavButton />
+      {/* we can pass some props: */}
+      {/* if the menu is open so close it or viseversa */}
+      {/*  color is sink the themecolor */}
+      <NavButton
+        // this is that button of menu icon:
+        title="Menu"
+        customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
+        color="blue"
+        icon={<AiOutlineMenu />}
+        // so now we have every thing to create the navbutton.
+      />
     </div>
   );
 };
