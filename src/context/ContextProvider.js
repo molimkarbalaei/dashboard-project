@@ -21,6 +21,11 @@ export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true);
 
   const [state, setState] = useState(initialState);
+
+  // 2- the logic: work when we click on options on the navbar like: chat, cart, userProfile, notification
+  const [isClicked, setIsClicked] = useState(initialState);
+  // (nothing has clicked at the beginning)
+
   return (
     // the value is an obj:
     // 1-1: we can pass that state over the value:
@@ -30,6 +35,8 @@ export const ContextProvider = ({ children }) => {
       value={{
         activeMenu,
         setActiveMenu,
+        isClicked,
+        setIsClicked,
       }}
     >
       {/* we always return children: */}
