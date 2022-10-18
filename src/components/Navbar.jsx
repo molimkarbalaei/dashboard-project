@@ -64,27 +64,45 @@ const Navbar = () => {
           color="blue"
           icon={<FiShoppingCart />}
         />
+
+        {/* 3- create a chat icon: */}
+        <NavButton
+          title="Chat"
+          dotcolor="#03C9D7"
+          customFunc={() => handleClick("chat")}
+          color="blue"
+          icon={<BsChatLeft />}
+        />
+
+        {/* 4- create a notification icon: */}
+        <NavButton
+          title="Notification"
+          dotcolor="#03C9D7"
+          customFunc={() => handleClick("notification")}
+          color="blue"
+          icon={<RiNotification3Line />}
+        />
+
+        {/* 5- create a user profile icon: */}
+        {/* it is not only a single icon so we will rap in tooltipcomponent: */}
+        <TooltipComponent content="Profile" position="BottomCenter">
+          <div
+            className="flex items-center p-1 cursor-pointer hover:bg-light-gray rounded-lg gap-2"
+            onClick={() => handleClick("userProfile")}
+          >
+            <img src={avatar} className="rounded-full w-8 h-8" />
+            <p>
+              <span className="text-gray-400 text-14">Hi, </span>
+              {""}
+              <span className="text-gray-400 font-bold ml-1 text-14">
+                Molim
+              </span>
+            </p>
+            <MdKeyboardArrowDown className="text-gray-400 text-14" />
+          </div>
+        </TooltipComponent>
+        {/* we want that all of this button work, so, we create new context in usecontext file: */}
       </div>
-
-      {/* 3- create a chat icon: */}
-      <NavButton
-        title="Chat"
-        dotcolor="#03C9D7"
-        customFunc={() => handleClick("chat")}
-        color="blue"
-        icon={<BsChatLeft />}
-      />
-
-      {/* 4- create a notification icon: */}
-      <NavButton
-        title="Notification"
-        dotcolor="#03C9D7"
-        customFunc={() => handleClick("notification")}
-        color="blue"
-        icon={<RiNotification3Line />}
-      />
-
-      {/* 5- create a user profile icon: */}
     </div>
   );
 };
