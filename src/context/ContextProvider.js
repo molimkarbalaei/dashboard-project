@@ -46,6 +46,7 @@ export const ContextProvider = ({ children }) => {
         setActiveMenu,
         isClicked,
         setIsClicked,
+        handleClicked,
       }}
     >
       {/* we always return children: */}
