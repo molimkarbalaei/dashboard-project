@@ -22,9 +22,18 @@ export const ContextProvider = ({ children }) => {
 
   const [state, setState] = useState(initialState);
 
-  // 2- the logic: work when we click on options on the navbar like: chat, cart, userProfile, notification
+  // 2- the logic: work when we click on the navbar icon: chat, cart, userProfile, notification
   const [isClicked, setIsClicked] = useState(initialState);
   // (nothing has clicked at the beginning)
+
+  // 3- handle function: later we add step by step
+  // which element has clicked:
+
+  const handleClicked = (clicked) => {
+    // we can't write setIsClicked(clicked) because setisClicked is an obj and clicked is a string
+    // so we will use spread operator to copy the state and then change the value of the clicked element
+    setIsClicked({ ...initialState, [clicked]: true });
+  };
 
   return (
     // the value is an obj:
