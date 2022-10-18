@@ -29,7 +29,7 @@ export const ContextProvider = ({ children }) => {
   // 3- handle function: later we add step by step
   // which element has clicked:
 
-  const handleClicked = (clicked) => {
+  const handleClick = (clicked) => {
     // we can't write setIsClicked(clicked) because setisClicked is an obj and clicked is a string
     // so we will use spread operator to copy the state and then change the value of the clicked element
     setIsClicked({ ...initialState, [clicked]: true });
@@ -46,7 +46,7 @@ export const ContextProvider = ({ children }) => {
         setActiveMenu,
         isClicked,
         setIsClicked,
-        handleClicked,
+        handleClick,
       }}
     >
       {/* we always return children: */}
