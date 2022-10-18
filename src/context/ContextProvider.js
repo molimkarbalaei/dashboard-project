@@ -19,7 +19,6 @@ export const ContextProvider = ({ children }) => {
   // lets add all states and logics we have: in our context:
   // 1- the state:
   const [activeMenu, setActiveMenu] = useState(true);
-
   const [state, setState] = useState(initialState);
 
   // 2- the logic: work when we click on the navbar icon: chat, cart, userProfile, notification
@@ -28,12 +27,14 @@ export const ContextProvider = ({ children }) => {
 
   // 3- handle function: later we add step by step
   // which element has clicked:
-
   const handleClick = (clicked) => {
     // we can't write setIsClicked(clicked) because setisClicked is an obj and clicked is a string
     // so we will use spread operator to copy the state and then change the value of the clicked element
     setIsClicked({ ...initialState, [clicked]: true });
   };
+
+  //4- for mobile view: menu is closed in mobile view
+  const [sceernSize, setScreenSize] = useState(undefined);
 
   return (
     // the value is an obj:
