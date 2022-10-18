@@ -37,9 +37,40 @@ const NavButton = ({ title, customFunc, icon, color, dotcolor }) => (
 
 const Navbar = () => {
   // 1- we can get activeMenusetActiveMenu state from context:
-  const { activeMenu, setActiveMenu } = useStateContext();
-  //2- implimenting the navbar: mx= margin left and right
+  // 1-1 later we add other values from context: setIsClicked, isClicked
+  const {
+    activeMenu,
+    setActiveMenu,
+    setIsClicked,
+    isClicked,
+    handleClick,
+    sceernSize,
+    setScreenSize,
+  } = useStateContext();
 
+  // we want to figure out the screen size:
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    // we will track all resize events:
+    // if it resizes we will update the screen size: re call handleResize
+    handleResize();
+
+    // IN REACT:***
+    // we need to remove the event listener when we unmount the component:
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // we want to track the screen size changes:
+  useEffect(() => {
+    if (sceernSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [sceernSize]);
+
+  //2- implimenting the navbar: mx= margin left and right
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
       {/* we can pass some props: */}
@@ -102,6 +133,10 @@ const Navbar = () => {
           </div>
         </TooltipComponent>
         {/* we want that all of this button work, so, we create new context in usecontext file: */}
+        {isClicked.cart && <Cart />}
+        {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notification />}
+        {isClicked.userProfile && <UserProfile />}
       </div>
     </div>
   );
