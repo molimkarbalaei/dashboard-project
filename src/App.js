@@ -41,7 +41,7 @@ const App = () => {
             <TooltipComponent content="Settings" position="Top">
               <button
                 type="button"
-                className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
+                className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
                 // we want to change the style based on the theme:
                 style={{ backgroundColor: "#1a202c", borderRadius: "50%" }}
               >
@@ -58,18 +58,18 @@ const App = () => {
           ) : (
             <div className="w-0 dark:bg-secondary-dark-bg">
               {" "}
-              <Sidebar />{" "}
+              <Sidebar />
             </div>
           )}
           {/* navigation bar: based on if the menu is active or not*/}
           <div
             className={
-              //cause we have similar ones:
+              //   //cause we have similar ones:
               `dark:bg-main-bg bg-main-bg min-h-screen w-full ${
-                activeMenu ? "md : ml - 12" : "flex-2"
+                activeMenu ? "md : ml-72" : "flex-2"
               }`
               //   activeMenu
-              //     ? "dark:bg-main-bg bg-main-bg min-h-screen md:ml-12 w-full"
+              //     ? "dark:bg-main-dark-bg bg-main-bg min-h-screen md:ml-72 w-full"
               //     : "dark:bg-main-bg bg-main-bg min-h-screen w-full flex-2"
             }
           >
