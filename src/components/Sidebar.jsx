@@ -15,7 +15,15 @@ const Sidebar = () => {
   // step by step:
 
   //****(2) from the context we have to get the state:
-  const { activeMenu, setActiveMenu } = useStateContext();
+  // later we add screen size.
+  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+
+  // LATER*****  for all pages when we clicked on other pages of sidebar:
+  const handleCloseSideBar = () => {
+    if (activeMenu && screenSize <= 900) {
+      setActiveMenu(false);
+    }
+  };
 
   // set 2 types of classes: active and inactive links:
   const activeLink =
@@ -33,9 +41,7 @@ const Sidebar = () => {
           <div className="flex justify-between items-center">
             <Link
               to="/"
-              onClick={() => {
-                setActiveMenu(false);
-              }}
+              onClick={handleCloseSideBar}
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900 "
             >
               <SiShopware /> <span>Shoppy</span>
@@ -65,7 +71,7 @@ const Sidebar = () => {
                   <NavLink
                     to={`/${link.name}`}
                     key={link.name}
-                    onClick={() => {}}
+                    onClick={handleCloseSideBar}
                     // we call a fun in out classname:
                     className={({ isActive }) =>
                       isActive ? activeLink : normalLink
