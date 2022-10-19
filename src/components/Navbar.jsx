@@ -28,9 +28,9 @@ const NavButton = ({ title, customFunc, icon, color, dotcolor }) => (
       <span
         style={{ background: dotcolor }}
         className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
-      >
-        {icon}
-      </span>
+      />
+      {/*  we want to edit the styling of navbar: bigger */}
+      {icon}
     </button>
   </TooltipComponent>
 );
