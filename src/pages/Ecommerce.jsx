@@ -122,6 +122,10 @@ const Ecommerce = () => {
                 />
               </div>
             </div>
+            {/* for expense and budget chart: */}
+            <div>
+              <Stacked width="320px" height="360px" />
+            </div>
           </div>
         </div>
       </div>
