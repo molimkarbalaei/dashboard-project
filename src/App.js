@@ -80,6 +80,9 @@ const App = () => {
 
             {/* main div for routing menu: */}
             <div>
+              {/* edit theme settig: */}
+              <ThemeSettings />
+
               <Routes>
                 {/* DASHBOARD: */}
                 <Route path="/" element={<Ecommerce />} />
