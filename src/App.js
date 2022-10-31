@@ -90,7 +90,7 @@ const App = () => {
                 <Route path="/employees" element={<Employees />} />
                 <Route path="/customers" element={<Customers />} />
                 {/* Apps: */}
-                <Route path="/calendarr" element={<Calendar />} />
+                <Route path="/calendar" element={<Calendar />} />
                 <Route path="/kanban" element={<Kanban />} />
                 <Route path="/editor" element={<Editor />} />
                 <Route path="/color-picker" element={<ColorPicker />} />
