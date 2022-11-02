@@ -16,7 +16,8 @@ const Sidebar = () => {
 
   //****(2) from the context we have to get the state:
   // later we add screen size.
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } =
+    useStateContext();
 
   // LATER*****  for all pages when we clicked on other pages of sidebar:
   const handleCloseSideBar = () => {
@@ -72,6 +73,9 @@ const Sidebar = () => {
                     to={`/${link.name}`}
                     key={link.name}
                     onClick={handleCloseSideBar}
+                    style={({ isActive }) => ({
+                      backgroundColor: isActive ? currentColor : "",
+                    })}
                     // we call a fun in out classname:
                     className={({ isActive }) =>
                       isActive ? activeLink : normalLink

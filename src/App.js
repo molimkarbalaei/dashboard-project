@@ -29,7 +29,8 @@ import { useStateContext } from "./context/ContextProvider";
 
 const App = () => {
   // now we bring the context here:
-  const { activeMenu, themeSettings, setThemeSettings } = useStateContext();
+  const { activeMenu, themeSettings, setThemeSettings, currentColor } =
+    useStateContext();
 
   return (
     <div>
@@ -45,7 +46,7 @@ const App = () => {
                 onClick={() => setThemeSettings(true)}
                 className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
                 // we want to change the style based on the theme:
-                style={{ backgroundColor: "#1a202c", borderRadius: "50%" }}
+                style={{ backgroundColor: currentColor, borderRadius: "50%" }}
               >
                 <FiSettings />
               </button>
