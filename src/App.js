@@ -29,7 +29,7 @@ import { useStateContext } from "./context/ContextProvider";
 
 const App = () => {
   // now we bring the context here:
-  const { activeMenu } = useStateContext();
+  const { activeMenu, themeSettings, setThemeSettings } = useStateContext();
 
   return (
     <div>
@@ -41,6 +41,8 @@ const App = () => {
             <TooltipComponent content="Settings" position="Top">
               <button
                 type="button"
+                //turn on the theme settings:
+                onClick={() => setThemeSettings(true)}
                 className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
                 // we want to change the style based on the theme:
                 style={{ backgroundColor: "#1a202c", borderRadius: "50%" }}
@@ -80,8 +82,8 @@ const App = () => {
 
             {/* main div for routing menu: */}
             <div>
-              {/* edit theme settig: */}
-              <ThemeSettings />
+              {/* edit theme settig: we show it if only it is true */}
+              {themeSettings && <ThemeSettings />}
 
               <Routes>
                 {/* DASHBOARD: */}
