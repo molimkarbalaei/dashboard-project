@@ -10,6 +10,8 @@ import {
 import { useStateContext } from "../context/ContextProvider";
 
 const Ecommerce = () => {
+  // define the state for the theme settings:
+  const { currentColor } = useStateContext();
   return (
     <div className="mt-12">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
@@ -27,7 +29,7 @@ const Ecommerce = () => {
             {/* add some props to the button: */}
             <Button
               color="white"
-              bgColor="blue"
+              bgColor={currentColor}
               text="Download"
               borderRadius="10px"
               size="md"
@@ -103,13 +105,13 @@ const Ecommerce = () => {
               {/* sparkline chart: */}
               <div className="mt-5">
                 <SparkLine
-                  currentColor="blue"
+                  currentColor={currentColor}
                   id="line-sparkline"
                   type="Line"
                   height="80px"
                   width="250px"
                   data={SparklineAreaData}
-                  color="blue"
+                  color={currentColor}
                 />
               </div>
               {/* button for downloads: */}
@@ -117,7 +119,7 @@ const Ecommerce = () => {
                 <Button
                   color="white"
                   text="Download Report"
-                  bgColor="blue"
+                  bgColor={currentColor}
                   borderRadius="10px"
                 />
               </div>
