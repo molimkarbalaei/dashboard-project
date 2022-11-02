@@ -54,6 +54,9 @@ export const ContextProvider = ({ children }) => {
     localStorage.setItem("colorMode", e.target.value);
   };
 
+  //8- for themesettins: simple yes or no: the sidebar is open or close
+  const [themeSettings, setThemeSettings] = useState(false);
+
   return (
     // the value is an obj:
     // 1-1: we can pass that state over the value:
@@ -72,6 +75,8 @@ export const ContextProvider = ({ children }) => {
         setCurrentColor,
         currentMode,
         setCurrentMode,
+        themeSettings,
+        setThemeSettings,
       }}
     >
       {/* we always return children: */}
