@@ -46,6 +46,7 @@ const Navbar = () => {
     handleClick,
     sceernSize,
     setScreenSize,
+    currentColor,
   } = useStateContext();
 
   // we want to figure out the screen size:
@@ -82,7 +83,7 @@ const Navbar = () => {
         // this is that button of menu icon:
         title="Menu"
         customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
-        color="blue"
+        color={currentColor}
         icon={<AiOutlineMenu />}
         // so now we have every thing to create the navbutton.
       />
@@ -92,7 +93,7 @@ const Navbar = () => {
         <NavButton
           title="Cart"
           customFunc={() => handleClick("cart")}
-          color="blue"
+          color={currentColor}
           icon={<FiShoppingCart />}
         />
 
@@ -101,7 +102,7 @@ const Navbar = () => {
           title="Chat"
           dotcolor="#03C9D7"
           customFunc={() => handleClick("chat")}
-          color="blue"
+          color={currentColor}
           icon={<BsChatLeft />}
         />
 
@@ -110,7 +111,7 @@ const Navbar = () => {
           title="Notification"
           dotcolor="#03C9D7"
           customFunc={() => handleClick("notification")}
-          color="blue"
+          color={currentColor}
           icon={<RiNotification3Line />}
         />
 
