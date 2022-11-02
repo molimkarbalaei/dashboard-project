@@ -36,6 +36,24 @@ export const ContextProvider = ({ children }) => {
   //4- for mobile view: menu is closed in mobile view
   const [sceernSize, setScreenSize] = useState(undefined);
 
+  //5- for theme: dark and light(themesetting)
+  const [currentColor, setCurrentColor] = useState("#03c9d7");
+  const [currentMode, setCurrentMode] = useState("light");
+
+  //6- for changing the mode: dark and light:
+  const setMode = (e) => {
+    setCurrentMode(e.target.value);
+    // also update the local storage:
+    localStorage.setItem("themeMode", e.target.value);
+  };
+
+  //7- for changing the color:
+  const setColor = (e) => {
+    setCurrentColor(e.target.value);
+    // also update the local storage:
+    localStorage.setItem("colorMode", e.target.value);
+  };
+
   return (
     // the value is an obj:
     // 1-1: we can pass that state over the value:
@@ -50,6 +68,10 @@ export const ContextProvider = ({ children }) => {
         handleClick,
         sceernSize,
         setScreenSize,
+        currentColor,
+        setCurrentColor,
+        currentMode,
+        setCurrentMode,
       }}
     >
       {/* we always return children: */}
