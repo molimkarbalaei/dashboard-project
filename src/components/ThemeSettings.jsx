@@ -8,6 +8,11 @@ import { themeColors } from "../data/dummy";
 import { useStateContext } from "../context/ContextProvider";
 
 const ThemeSettings = () => {
+  // LATER:
+  // for working with the theme colors: from contextprovider.js
+  const { setColor, setMode, currentMode, currentColor, setThemeSettings } =
+    useStateContext();
+
   // first create A layout for the theme settings:
   return (
     <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0">
@@ -19,7 +24,8 @@ const ThemeSettings = () => {
           <button
             type="button"
             className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
-            onClick={() => {}}
+            //close the sidebar:
+            onClick={() => setThemeSettings(false)}
             style={{ color: "rgb(153,171,180", borderRadius: "50%" }}
           >
             <MdOutlineCancel />
@@ -35,8 +41,8 @@ const ThemeSettings = () => {
               name="theme"
               value="Light"
               className="cursor-pointer"
-              onChange={() => {}}
-              checked={true}
+              onChange={setMode}
+              checked={currentMode === "Light"}
             />
             <label htmlFor="light" className="ml-2 text-md cursor-pointer">
               {" "}
@@ -50,8 +56,8 @@ const ThemeSettings = () => {
               name="theme"
               value="Dark"
               className="cursor-pointer"
-              onChange={() => {}}
-              checked={true}
+              onChange={setMode}
+              checked={currentMode === "Dark"}
             />
             <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
               {" "}
@@ -75,11 +81,12 @@ const ThemeSettings = () => {
                     type="button"
                     className="rounded-full w-10 h-10 cursor-pointer"
                     style={{ backgroundColor: item.color }}
-                    onClick={() => {}}
+                    onClick={() => setColor(item.color)}
                   >
+                    {/* for check which theme is chosed */}
                     <BsCheck
                       className={`ml-2 text-2xl text-white ${
-                        true ? "block" : "hidden"
+                        item.color === currentColor ? "block" : "hidden"
                       }`}
                     />
                   </button>
