@@ -45,13 +45,15 @@ export const ContextProvider = ({ children }) => {
     setCurrentMode(e.target.value);
     // also update the local storage:
     localStorage.setItem("themeMode", e.target.value);
+    //6-1 when we change the theme the sidebar close:
+    setThemeSettings(false);
   };
 
   //7- for changing the color:
-  const setColor = (e) => {
-    setCurrentColor(e.target.value);
+  const setColor = (color) => {
+    setCurrentColor(color);
     // also update the local storage:
-    localStorage.setItem("colorMode", e.target.value);
+    localStorage.setItem("colorMode", color);
   };
 
   //8- for themesettins: simple yes or no: the sidebar is open or close
@@ -71,12 +73,13 @@ export const ContextProvider = ({ children }) => {
         handleClick,
         sceernSize,
         setScreenSize,
-        currentColor,
-        setCurrentColor,
         currentMode,
         setCurrentMode,
         themeSettings,
         setThemeSettings,
+        currentColor,
+        setMode,
+        setColor,
       }}
     >
       {/* we always return children: */}
